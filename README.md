@@ -1,5 +1,7 @@
 # OpenClaw Work Directory
 
+个人的创新项目基地
+
 This directory contains focused working artifacts for the OpenClaw desktop automation architecture.
 
 ## Contents
