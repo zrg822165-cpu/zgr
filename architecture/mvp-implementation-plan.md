@@ -1,21 +1,21 @@
-# A11yFlow 一期 MVP 实施方案
+# Allyflow 一期 MVP 实施方案
 
 ## 1. 目标
 
-在现有架构草案基础上，定义 `a11yflow` 一期 `MVP` 的可实施方案，目标不是覆盖所有桌面软件，而是尽快打通一条稳定闭环：
+在现有架构草案基础上，定义 `allyflow` 一期 `MVP` 的可实施方案，目标不是覆盖所有桌面软件，而是尽快打通一条稳定闭环：
 
 `窗口发现 -> 结构化快照 -> 元素定位 -> 动作执行 -> 结果校验 -> 有限回退`
 
 当前阶段补充：
 
 - 这条闭环现在已经基本落地
-- 项目当前重点不再是开放接口，而是直接把 A11yFlow 当产品去操作真实桌面软件
+- 项目当前重点不再是开放接口，而是直接把 Allyflow 当产品去操作真实桌面软件
 - 当前产品旗帜明确为 `accessibility_tree` 优先
 - `OCR`、截图、视觉 fallback 暂不进入当前阶段实施范围，只保留未来边界
 
 一期要回答的不是“架构是否足够完整”，而是：
 
-- `a11yflow` 是否能稳定操作典型 Windows 桌面应用
+- `allyflow` 是否能稳定操作典型 Windows 桌面应用
 - 文本选择器和结构化动作是否足以支撑 agent 执行常见任务
 - 元素引用、动作协议和诊断输出是否足以支撑重试与恢复
 
@@ -84,7 +84,7 @@
 
 当前项目应明确定位为：
 
-- 一个服务于 A11yFlow 上层的桌面操作 substrate
+- 一个服务于 Allyflow 上层的桌面操作 substrate
 - 以 `accessibility_tree` 为主界面
 - 负责感知、定位、执行、验证、恢复语义
 - 不负责任务规划、用户意图解释、复杂工作流编排和最终用户体验
@@ -182,7 +182,7 @@
 
 ### 4A.4 明确不属于底层的能力
 
-以下能力默认属于 A11yFlow 上层，不应继续下沉到底层：
+以下能力默认属于 Allyflow 上层，不应继续下沉到底层：
 
 - 用户自然语言意图解释
 - 多步任务规划
@@ -269,7 +269,7 @@
 - `SelectorParser` 已可解析一期 selector 子集
 - `SnapshotLocator` 已在结构化快照树上执行匹配，而不是直接依赖实时 UIA 遍历
 - 已支持 strict、structural、descendant、text 和 fallback chain 这几类一期定位策略
-- 已输出候选、最佳命中、歧义状态和诊断信息，面向 `a11yflow` 的文本视觉消费
+- 已输出候选、最佳命中、歧义状态和诊断信息，面向 `allyflow` 的文本视觉消费
 
 ### 4.4 Action Executor
 
@@ -298,7 +298,7 @@
 - `TargetResolver` 已支持 `ref` 优先、selector 回退的最小目标解析链路
 - `UiaActionExecutor` 已支持 `invoke / focus / set_value / toggle / expand / collapse / click / press_keys`
 - 动作结果已标准化为 `ActionResult`，包含 `target_resolution`, `execution_path`, `verification`, `timing`
-- 为满足 `a11yflow` 的文本操作闭环，最小 `dry_run` 与有限 `input_simulation` fallback 已提前接入
+- 为满足 `allyflow` 的文本操作闭环，最小 `dry_run` 与有限 `input_simulation` fallback 已提前接入
 - `windows_act` 现已补充执行计划型 `dry_run` 输出、`max_retries` 重试预算处理、attempt 级诊断字段和更真实的 expected outcome 比对
 
 ### 4.5 Protocol Adapter
@@ -625,7 +625,7 @@ Actionable elements:
 
 已实现内容：
 
-- `A11yFlow.sln` 和基础项目结构已建立
+- `Allyflow.sln` 和基础项目结构已建立
 - `UiaWindowRegistry` 已可列出顶层窗口并识别活动窗口
 - `UiaSnapshotBuilder` 已可生成活动窗口结构化快照
 - `InMemoryRefRegistry` 已可分配窗口和元素 `ref`
@@ -786,7 +786,7 @@ Actionable elements:
 
 当前阶段再增加一条产品验收标准：
 
-- 使用 A11yFlow 主路径对若干真实桌面软件执行任务时，能够明确区分“产品可用”、“产品待打磨”和“需要未来视觉产品线”的边界
+- 使用 Allyflow 主路径对若干真实桌面软件执行任务时，能够明确区分“产品可用”、“产品待打磨”和“需要未来视觉产品线”的边界
 
 ## 16. 与当前文档集的关系
 
@@ -800,7 +800,7 @@ Actionable elements:
 
 ## 17. 核心结论
 
-`a11yflow` 一期最重要的不是做成“大而全的桌面自动化框架”，而是先做成一个对 agent 真正可用、能操作真实软件的最小执行内核：
+`allyflow` 一期最重要的不是做成“大而全的桌面自动化框架”，而是先做成一个对 agent 真正可用、能操作真实软件的最小执行内核：
 
 - 能看见
 - 能定位

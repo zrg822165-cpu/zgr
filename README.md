@@ -1,8 +1,8 @@
-# A11yFlow Work Directory
+# Allyflow Work Directory
 
 个人的创新项目基地
 
-This directory contains focused working artifacts for the A11yFlow desktop automation architecture.
+This directory contains focused working artifacts for the Allyflow desktop automation architecture.
 
 ## Contents
 
@@ -17,11 +17,11 @@ This directory contains focused working artifacts for the A11yFlow desktop autom
 
 ## Notes
 
-- The current implementation layout is intentionally slimmed down to two source projects: `A11yFlow.Core` and `A11yFlow.Infrastructure.Windows`.
-- Tool request/result types and tool-service orchestration now live inside `A11yFlow.Core`; they are no longer split into a separate `A11yFlow.Protocol` project.
+- The current implementation layout is intentionally slimmed down to two source projects: `Allyflow.Core` and `Allyflow.Infrastructure.Windows`.
+- Tool request/result types and tool-service orchestration now live inside `Allyflow.Core`; they are no longer split into a separate `Allyflow.Protocol` project.
 - The remaining reference docs are intentionally current-state oriented. Older speculative draft splits were removed once the implementation and validation loop became the real source of truth.
 - UI inspector surfaces are intentionally out of scope unless they are needed only for internal debugging.
-- A11yFlow's current product flag is now explicit: it is an `accessibility_tree`-first desktop automation product, not a screenshot/OCR-first product.
+- Allyflow's current product flag is now explicit: it is an `accessibility_tree`-first desktop automation product, not a screenshot/OCR-first product.
 - The current implementation has already crossed the "architecture only" stage and now contains a live `.NET 8` product slice with real WinForms/UIA-backed query, action, scenario, and failure-path coverage.
 - The core product loop is in place: `windows_list -> windows_snapshot -> windows_locate -> ref -> windows_act -> verification -> diagnostics/recovery`.
 - The structured query surface is available through `windows_list`, `windows_active`, `windows_snapshot`, `windows_describe_ref`, `windows_locate`, and `windows_refresh_focus`.
@@ -30,5 +30,5 @@ This directory contains focused working artifacts for the A11yFlow desktop autom
 - Real fixture-backed scenario coverage now proves three minimal product tasks end to end: `I-001 设置页填写并保存`, `I-002 登录表单输入与提交`, and `I-003 对话框歧义消解`.
 - Real protocol and recovery checks also exist for `dry_run`, `TargetNotFound`, `VerificationFailed`, `FallbackBlocked`, stale-ref recovery, focus refresh continuity, and action timing monotonicity.
 - `T5-007` has been intentionally kept lightweight: the project now uses repeated real WinForms/UIA runs to validate product stability instead of introducing a heavy benchmark harness too early.
-- The next stage is no longer "expand interfaces" or "start vision fallback". The next stage is product usability validation on real desktop software, using A11yFlow itself as the operator.
+- The next stage is no longer "expand interfaces" or "start vision fallback". The next stage is product usability validation on real desktop software, using Allyflow itself as the operator.
 - Screenshot, OCR, and vision fallback are intentionally not part of the current product line. They remain future options only if accessibility-tree automation proves insufficient on real software.

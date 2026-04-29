@@ -18,10 +18,10 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore
-        run: dotnet restore A11yFlow.sln
+        run: dotnet restore Allyflow.sln
 
       - name: Build
-        run: dotnet build A11yFlow.sln --configuration Release --no-restore
+        run: dotnet build Allyflow.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test A11yFlow.sln --configuration Release --no-build
+        run: dotnet test Allyflow.sln --configuration Release --no-build

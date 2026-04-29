@@ -1,6 +1,6 @@
 # Real App Validation Log
 
-This file records real desktop app validation using A11yFlow's current product path:
+This file records real desktop app validation using Allyflow's current product path:
 
 - `windows_list`
 - `windows_snapshot`
@@ -119,7 +119,7 @@ Validation order should move from easier to harder:
 
 ## Current Summary
 
-- Confirmed: A11yFlow can already operate a real system app directly through the current product path without any extra mock layer.
+- Confirmed: Allyflow can already operate a real system app directly through the current product path without any extra mock layer.
 - Confirmed: the first real-app bottleneck was not action execution, but selector portability across real UIA role shapes.
 - Confirmed: a second real-app class already exposes a different failure mode, where hosted-window discovery or localization can block progress before selector/action validation becomes straightforward.
 - Confirmed: baseline real-app tests should be conservative about `AutoActivateWindow`; foreground activation is itself a product-risk dimension and should not be forced where unnecessary.
