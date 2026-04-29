@@ -7,7 +7,7 @@ This file defines the operating rules for large-scale real-app-driven product it
 Every validation cycle should follow the same sequence:
 
 1. Pick one app and one concrete operator task.
-2. Execute the task through the current OpenClaw product path.
+2. Execute the task through the current A11yFlow product path.
 3. Record the exact product chain and observed behavior.
 4. Classify the first blocking issue.
 5. Make the smallest useful product improvement.

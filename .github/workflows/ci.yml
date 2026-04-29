@@ -18,10 +18,10 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore
-        run: dotnet restore OpenClaw.sln
+        run: dotnet restore A11yFlow.sln
 
       - name: Build
-        run: dotnet build OpenClaw.sln --configuration Release --no-restore
+        run: dotnet build A11yFlow.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test OpenClaw.sln --configuration Release --no-build
+        run: dotnet test A11yFlow.sln --configuration Release --no-build

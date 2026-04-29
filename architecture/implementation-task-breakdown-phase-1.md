@@ -1,4 +1,4 @@
-# OpenClaw 一期实现任务拆解
+# A11yFlow 一期实现任务拆解
 
 ## 1. 目标
 
@@ -31,18 +31,18 @@
 
 ```text
 src/
-  OpenClaw.Core/
-  OpenClaw.Infrastructure.Windows/
+  A11yFlow.Core/
+  A11yFlow.Infrastructure.Windows/
 tests/
-  OpenClaw.Tests.Unit/
-  OpenClaw.Tests.Integration/
+  A11yFlow.Tests.Unit/
+  A11yFlow.Tests.Integration/
 ```
 
 建议职责分配：
 
-- `OpenClaw.Core`: 核心模型、接口、错误码、执行策略，以及工具请求/结果与协议适配逻辑
-- `OpenClaw.Infrastructure.Windows`: `FlaUI/UIA3` 适配、窗口发现、快照、动作执行
-- `OpenClaw.Tests.*`: 单元、集成，以及集成项目内聚合的测试夹具
+- `A11yFlow.Core`: 核心模型、接口、错误码、执行策略，以及工具请求/结果与协议适配逻辑
+- `A11yFlow.Infrastructure.Windows`: `FlaUI/UIA3` 适配、窗口发现、快照、动作执行
+- `A11yFlow.Tests.*`: 单元、集成，以及集成项目内聚合的测试夹具
 
 ## 4. 交付阶段总览
 
@@ -72,7 +72,7 @@ tests/
 
 当前产品旗帜：
 
-- `OpenClaw` 当前主产品明确为 `accessibility_tree` 优先的桌面自动化能力
+- `A11yFlow` 当前主产品明确为 `accessibility_tree` 优先的桌面自动化能力
 - 当前主线目标不是开放外部接口，也不是启动视觉 fallback，而是直接用产品操作真实电脑软件
 - 后续打磨应优先围绕真实任务中的可用性、恢复能力、诊断可解释性和操作成功率展开
 - `OCR`、截图、视觉 fallback 仅保留为未来可能拆分的第二产品线，不作为当前阶段阻塞项
@@ -109,11 +109,11 @@ tests/
 阶段 0 已落地内容：
 
 - 安装 `.NET SDK 8.0.420`
-- 创建 `OpenClaw.sln`
-- 创建 `src/OpenClaw.Core`
-- 创建 `src/OpenClaw.Infrastructure.Windows`
-- 创建 `tests/OpenClaw.Tests.Unit`
-- 创建 `tests/OpenClaw.Tests.Integration`
+- 创建 `A11yFlow.sln`
+- 创建 `src/A11yFlow.Core`
+- 创建 `src/A11yFlow.Infrastructure.Windows`
+- 创建 `tests/A11yFlow.Tests.Unit`
+- 创建 `tests/A11yFlow.Tests.Integration`
 - 补充项目引用与基础依赖
 - 为 Windows 自动化相关项目切换到 `net8.0-windows`
 - 新增 `Directory.Build.props` 与 `global.json`
@@ -142,7 +142,7 @@ tests/
 - 在 `QueryToolService` 中暴露 `windows_locate`
 - 在 `QueryToolService` 中暴露 `windows_describe_ref`
 - 新增单元测试覆盖 selector parsing、定位命中、歧义、fallback chain、describe ref
-- 通过 `dotnet build OpenClaw.sln --configuration Release` 与 `dotnet test OpenClaw.sln --configuration Release`
+- 通过 `dotnet build A11yFlow.sln --configuration Release` 与 `dotnet test A11yFlow.sln --configuration Release`
 
 阶段 3 已落地内容：
 
@@ -155,9 +155,9 @@ tests/
 - 对外打通 `windows_act` 的最小协议闭环，返回标准 `ActionResult`
 - 打通动作服务初始化与最小执行调用链
 - 新增单元测试覆盖 `dry_run`、目标解析失败映射、成功执行结果、校验失败结果
-- 通过 `dotnet build OpenClaw.sln --configuration Release`
-- 通过 `dotnet test tests/OpenClaw.Tests.Unit/OpenClaw.Tests.Unit.csproj --configuration Release`
-- 通过 `dotnet test OpenClaw.sln --configuration Release`
+- 通过 `dotnet build A11yFlow.sln --configuration Release`
+- 通过 `dotnet test tests/A11yFlow.Tests.Unit/A11yFlow.Tests.Unit.csproj --configuration Release`
+- 通过 `dotnet test A11yFlow.sln --configuration Release`
 - 说明：`dry_run` 与有限 `input_simulation` fallback 已为阶段 3 最小执行闭环提前接入，但阶段 4 仍需补齐策略控制、重试与标准化诊断边界
 
 ## 5. 阶段 0：仓库初始化
@@ -644,14 +644,14 @@ tests/
 
 接下来的工作原则：
 
-- 直接把 OpenClaw 当产品使用，用它去操作真实电脑软件
+- 直接把 A11yFlow 当产品使用，用它去操作真实电脑软件
 - 先在真实任务中优化控件树、selector、ref、结构化动作、verification 和 diagnostics
 - 不因为少数困难场景过早跳到截图、OCR 或视觉 fallback
 - 只有当 accessibility tree 在真实软件上高频失效且无法通过产品打磨解决时，才考虑单独开启第二产品线
 
 当前阶段验收问题应改写为：
 
-- OpenClaw 是否已经真实赋能了典型 Windows 软件操作
+- A11yFlow 是否已经真实赋能了典型 Windows 软件操作
 - 哪些任务可以仅靠 `accessibility_tree` 主路径完成
 - 哪些失败属于 selector/diagnostics/product loop 问题，哪些才属于未来视觉产品边界
 
@@ -706,7 +706,7 @@ tests/
 
 ## 14. 核心结论
 
-OpenClaw 现在已经不再处于“先把能力拼出来”的阶段，而是进入“用产品验证产品”的阶段。
+A11yFlow 现在已经不再处于“先把能力拼出来”的阶段，而是进入“用产品验证产品”的阶段。
 
 当前主线不是：
 

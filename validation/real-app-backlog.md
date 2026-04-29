@@ -1,10 +1,10 @@
 # Real App Backlog
 
-This backlog turns real desktop app validation into the main product-driving loop for OpenClaw.
+This backlog turns real desktop app validation into the main product-driving loop for A11yFlow.
 
 ## Product Goal
 
-- Use the current OpenClaw product path directly on real desktop apps.
+- Use the current A11yFlow product path directly on real desktop apps.
 - Let real operator flows expose weaknesses in query, locate, action, verification, and recovery.
 - Convert each weakness into a concrete product improvement or an explicit accessibility boundary.
 
